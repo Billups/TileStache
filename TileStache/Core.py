@@ -387,6 +387,9 @@ class Layer:
 
         cache = self.config.cache
 
+        if format == 'PBF':
+            headers.add_header('Content-Encoding', 'gzip')
+
         if not ignore_cached:
             # Start by checking for a tile in the cache.
             try:
