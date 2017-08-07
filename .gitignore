@@ -1,4 +1,6 @@
 *.pyc
+cache
+data
 doc
 dist
 build
@@ -13,3 +15,5 @@ TileStache.egg-info/
 *.shx
 .coverage
 .idea/
+gunicorn.py
+tilestache.cfg

@@ -1,0 +1,7 @@
+# -*- coding: utf-8 -*-
+"""Gunicorn configuration file"""
+import multiprocessing
+
+bind = '127.0.0.1:9090'
+workers = multiprocessing.cpu_count() * 2 + 1
+accesslog = '-'
