@@ -2,6 +2,6 @@
 """Gunicorn configuration file"""
 import multiprocessing
 
-bind = '0.0.0.0:9090'
+bind = 'unix:/var/gunicorn/gunicorn.sock'
 workers = multiprocessing.cpu_count() * 2 + 1
 accesslog = '-'

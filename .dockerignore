@@ -1,4 +1,5 @@
 .git
-.cache
+*.pyc
+__pycache__
 cache
 data
