@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  tilestache:
+    image: billups-tilestache:latest
+    container_name: tilestache
+    cpu_count: 2
+    ports:
+      - '9090:9090'
+    volumes:
+      - ./cache:/usr/src/TileStache/cache
+      - ./data:/usr/src/TileStache/data
+      - ./gunicorn.py:/usr/src/TileStache/gunicorn.py
+      - ./tilestache.cfg:/usr/src/TileStache/tilestache.cfg
+    entrypoint: gunicorn -c gunicorn.py "TileStache:WSGITileServer('tilestache.cfg')"
