@@ -15,5 +15,6 @@ TileStache.egg-info/
 *.shx
 .coverage
 .idea/
+docker-compose.yml
 gunicorn.py
 tilestache.cfg
