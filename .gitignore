@@ -19,3 +19,5 @@ docker-compose.yml
 gunicorn.py
 nginx/nginx.conf
 tilestache.cfg
+vendor/
+wheel/
