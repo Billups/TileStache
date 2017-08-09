@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 WHEEL_DIR=$PWD/wheel
 

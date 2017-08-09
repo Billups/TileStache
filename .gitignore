@@ -16,7 +16,7 @@ TileStache.egg-info/
 .coverage
 .idea/
 docker-compose.yml
-gunicorn.py
+gunicorn/config.py
 nginx/nginx.conf
 tilestache.cfg
 vendor/
