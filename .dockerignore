@@ -1,4 +1,5 @@
 .git
+.python-version
 *.pyc
 __pycache__
 cache
