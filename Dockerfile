@@ -6,6 +6,7 @@ RUN apt-get update && apt-get -qq install -y --no-install-recommends \
     libgeos-dev \
     libjpeg-dev \
     libpq-dev \
+    libsqlite3-dev \
     nginx \
     python-dev \
     python-pip \
