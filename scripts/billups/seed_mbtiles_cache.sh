@@ -1,7 +1,8 @@
 #!/bin/bash
+set -xe
 
 function seed_layer {
-    ./scripts/tilestache-seed.py --include-path=$PWD --layer=$1 --from-mbtiles $2 --output-directory $PWD/cache 
+    ./scripts/tilestache-seed.py --include-path="$PWD" --layer=$1 --from-mbtiles $2 --output-directory "$PWD/cache"
 }
 
 function seed_markers {
