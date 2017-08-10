@@ -1,0 +1,7 @@
+# -*- coding: utf-8 -*-
+"""Gunicorn configuration file"""
+import multiprocessing
+
+bind = 'unix:/var/gunicorn/gunicorn.sock'
+workers = multiprocessing.cpu_count()
+accesslog = '-'
