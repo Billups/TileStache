@@ -1,10 +1,10 @@
 {
     "cache":
     {
-        "name": "Test",
-        "path": "/tmp/stache",
-        "umask": "0000",
-        "gzip": ["pbf"]
+        "name": "S3",
+        "bucket": "billups-tile-cache",
+        "access": "YourAwsAccessId",
+        "secret": "YourAwsAccessSecret"
     },
     "layers":
     {
