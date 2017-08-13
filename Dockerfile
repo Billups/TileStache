@@ -17,7 +17,7 @@ RUN apt-get update && apt-get -qq install -y --no-install-recommends \
 # Install TileStache dependencies
 WORKDIR /usr/src
 COPY . .
-RUN pip install -U -r requirements.txt
+RUN pip install -r requirements.txt
 
 # Configure nginx and Gunicorn
 RUN echo "\ndaemon off;" >> /etc/nginx/nginx.conf
