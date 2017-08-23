@@ -1,21 +1,30 @@
 {
-  "cache":
-  {
-    "name": "Test",
-    "path": "/tmp/stache",
-    "umask": "0000"
-  },
-  "layers": 
-  {
-    "osm":
+    "cache":
     {
-        "provider": {"name": "proxy", "provider": "OPENSTREETMAP"},
-        "png options": {"palette": "http://tilestache.org/example-palette-openstreetmap-mapnik.act"}
+        "name": "S3",
+        "bucket": "billups-tile-cache",
+        "access": "YourAwsAccessId",
+        "secret": "YourAwsAccessSecret"
     },
-    "example":
+    "layers":
     {
-        "provider": {"name": "mapnik", "mapfile": "examples/style.xml"},
-        "projection": "spherical mercator"
-    } 
-  }
+        "products":
+        {
+            "provider":
+            {
+                "name": "mbtiles",
+                "tileset": "data/mbtiles/products.mbtiles"
+            },
+            "allowed origin": "*"
+        },
+        "markers":
+        {
+            "provider":
+            {
+                "name": "mbtiles",
+                "tileset": "data/mbtiles/markers.mbtiles"
+            },
+            "allowed origin": "*"
+        }
+    }
 }
