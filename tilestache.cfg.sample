@@ -1,10 +1,9 @@
 {
     "cache":
     {
-        "name": "S3",
-        "bucket": "billups-tile-cache",
-        "access": "YourAwsAccessId",
-        "secret": "YourAwsAccessSecret"
+        "name": "Test",
+        "path": "/tmp/stache",
+        "umask": "0000"
     },
     "layers":
     {
@@ -14,8 +13,7 @@
             {
                 "name": "mbtiles",
                 "tileset": "data/mbtiles/products.mbtiles"
-            },
-            "allowed origin": "*"
+            }
         },
         "markers":
         {
@@ -23,8 +21,7 @@
             {
                 "name": "mbtiles",
                 "tileset": "data/mbtiles/markers.mbtiles"
-            },
-            "allowed origin": "*"
+            }
         }
     }
 }
