@@ -397,14 +397,14 @@ class WSGITileServer:
         try:
             layer, coord, ext = splitPathInfo(environ['PATH_INFO'])
         except Core.KnownUnknown as e:
-            return self._response(start_response, 400, str(e))
+            return self._response(start_response, 400, environ, str(e))
 
         #
         # WSGI behavior is different from CGI behavior, because we may not want
         # to return a chatty rummy for likely-deployed WSGI vs. testing CGI.
         #
         if layer and layer not in self.config.layers:
-            return self._response(start_response, 404)
+            return self._response(start_response, 404, environ)
 
         path_info = environ.get('PATH_INFO', None)
         query_string = environ.get('QUERY_STRING', None)
@@ -412,9 +412,9 @@ class WSGITileServer:
 
         status_code, headers, content = requestHandler2(self.config, path_info, query_string, script_name)
 
-        return self._response(start_response, status_code, str(content), headers)
+        return self._response(start_response, status_code, environ, str(content), headers)
 
-    def _response(self, start_response, code, content='', headers=None):
+    def _response(self, start_response, code, environ, content='', headers=None):
         """
         """
         headers = headers or Headers([])
@@ -422,8 +422,21 @@ class WSGITileServer:
         if content:
             headers.setdefault('Content-Length', str(len(content)))
 
+        _allow_origin(environ, headers)
+
         start_response('%d %s' % (code, httplib.responses[code]), headers.items())
         return [content]
+
+
+def _allow_origin(environ, headers):
+    # Set the Access-Control-Allow-Origin header if the
+    # X-Proxy-Allow-Origin header is present in the request
+    allowed_header = 'Access-Control-Allow-Origin'
+    if not headers.has_key(allowed_header):
+        allowed_origin = environ.get('HTTP_X_PROXY_ALLOW_ORIGIN', None)
+        if allowed_origin:
+            headers.setdefault(allowed_header, allowed_origin)
+
 
 def modpythonHandler(request):
     """ Handle a mod_python request.
