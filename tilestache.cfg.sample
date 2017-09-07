@@ -22,6 +22,22 @@
                 "name": "mbtiles",
                 "tileset": "data/mbtiles/markers.mbtiles"
             }
+        },
+        "productsnoven":
+        {
+            "provider":
+            {
+                "name": "mbtiles",
+                "tileset": "data/mbtiles/prodnoven.mbtiles"
+            }
+        },
+        "markersnoven":
+        {
+            "provider":
+            {
+                "name": "mbtiles",
+                "tileset": "data/mbtiles/markernoven.mbtiles"
+            }
         }
     }
 }
