@@ -455,6 +455,11 @@ class Layer:
                     if save:
                         cache.save(body, self, coord, format)
 
+                    # Body is an empty byte array, no tile exists in tile data for this coord
+                    # return 204 instead of 200
+                    if not body and status_code == 200:
+                        status_code = 204
+
                     tile_from = 'layer.render()'
 
             except TheTileLeftANote as e:
