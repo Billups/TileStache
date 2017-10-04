@@ -1,0 +1,43 @@
+{
+    "cache":
+    {
+        "name": "Test",
+        "path": "/tmp/stache",
+        "umask": "0000"
+    },
+    "layers":
+    {
+        "products":
+        {
+            "provider":
+            {
+                "name": "mbtiles",
+                "tileset": "data/mbtiles/products.mbtiles"
+            }
+        },
+        "markers":
+        {
+            "provider":
+            {
+                "name": "mbtiles",
+                "tileset": "data/mbtiles/markers.mbtiles"
+            }
+        },
+        "productsnoven":
+        {
+            "provider":
+            {
+                "name": "mbtiles",
+                "tileset": "data/mbtiles/prodnoven.mbtiles"
+            }
+        },
+        "markersnoven":
+        {
+            "provider":
+            {
+                "name": "mbtiles",
+                "tileset": "data/mbtiles/markernoven.mbtiles"
+            }
+        }
+    }
+}

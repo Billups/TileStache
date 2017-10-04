@@ -1,4 +1,7 @@
 *.pyc
+.python-version
+cache
+data
 doc
 dist
 build
@@ -13,3 +16,9 @@ TileStache.egg-info/
 *.shx
 .coverage
 .idea/
+docker-compose.yml
+gunicorn/config.py
+nginx/nginx.conf
+tilestache.cfg
+vendor/
+wheel/

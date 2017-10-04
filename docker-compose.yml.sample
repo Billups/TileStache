@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  tilestache:
+    image: billups-tilestache:latest
+    container_name: tilestache
+    ports:
+      - '9090:9090'
+    volumes:
+      - ./data:/usr/src/data
+      - ./gunicorn/config.py:/usr/src/gunicorn/config.py
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./tilestache.cfg:/usr/src/tilestache.cfg
+    entrypoint: ./scripts/billups/runicorn.sh
