@@ -44,7 +44,7 @@
             "provider":
             {
                 "name": "mbtiles",
-                "tileset": "data/products-nogeopath.mbtiles"
+                "tileset": "data/mbtiles/products-nogeopath.mbtiles"
             }
         },
         "markersnogeopath":
@@ -52,7 +52,7 @@
             "provider":
             {
                 "name": "mbtiles",
-                "tileset": "data/markers-nogeopath.mbtiles"
+                "tileset": "data/mbtiles/markers-nogeopath.mbtiles"
             }
         },
         "productsnovennogeopath":
@@ -60,7 +60,7 @@
             "provider":
             {
                 "name": "mbtiles",
-                "tileset": "data/prodnoven-nogeopath.mbtiles"
+                "tileset": "data/mbtiles/prodnoven-nogeopath.mbtiles"
             }
         },
         "markersnovennogeopath":
@@ -68,7 +68,7 @@
             "provider":
             {
                 "name": "mbtiles",
-                "tileset": "data/marknoven-nogeopath.mbtiles"
+                "tileset": "data/mbtiles/marknoven-nogeopath.mbtiles"
             }
         }
     }
