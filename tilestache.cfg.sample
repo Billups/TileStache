@@ -38,6 +38,38 @@
                 "name": "mbtiles",
                 "tileset": "data/mbtiles/markernoven.mbtiles"
             }
+        },
+        "productsnogeopath":
+        {
+            "provider":
+            {
+                "name": "mbtiles",
+                "tileset": "data/mbtiles/products-nogeopath.mbtiles"
+            }
+        },
+        "markersnogeopath":
+        {
+            "provider":
+            {
+                "name": "mbtiles",
+                "tileset": "data/mbtiles/markers-nogeopath.mbtiles"
+            }
+        },
+        "productsnovennogeopath":
+        {
+            "provider":
+            {
+                "name": "mbtiles",
+                "tileset": "data/mbtiles/prodnoven-nogeopath.mbtiles"
+            }
+        },
+        "markersnovennogeopath":
+        {
+            "provider":
+            {
+                "name": "mbtiles",
+                "tileset": "data/mbtiles/marknoven-nogeopath.mbtiles"
+            }
         }
     }
 }
