@@ -1,0 +1,6 @@
+[template]
+src = "config.yaml.tmpl"
+dest = "/root/.config/rclone/rclone.conf"
+keys = [
+    "/rclone",
+]

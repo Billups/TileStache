@@ -2,20 +2,24 @@
 # in a persistant volume for the Tilestache container to consume. 
 # 
 
-FROM golang:alpine
+FROM golang:alpine as build
 
 RUN apk add --no-cache git
 
 RUN go get -u -v github.com/ncw/rclone
 
-ENV RCLONE_CONFIG_S3_TYPE=s3
-ENV RCLONE_CONFIG_S3_PROVIDER=AWS
-ENV RCLONE_CONFIG_S3_REGION=us-west-2
-ENV RCLONE_CONFIG_S3_LOCATION_CONSTRAINT=us-west-2
-ENV RCLONE_CONFIG_S3_ENV_AUTH=true
+FROM build
+
+# Install ConfD to handle config file generation because IAM roles for S3 are kooky on ECS.
+RUN apk --no-cache add ca-certificates wget && update-ca-certificates
+ARG CONFD_VERSION=0.16.0
+RUN wget https://github.com/kelseyhightower/confd/releases/download/v${CONFD_VERSION}/confd-${CONFD_VERSION}-linux-amd64 -O /usr/local/bin/confd \
+    && chmod +x /usr/local/bin/confd
+COPY etc/ /etc/
 
 COPY scripts/billups/entrypoint.sh .
 RUN chmod +x entrypoint.sh
+RUN mkdir -p /root/.config/rclone/
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
 

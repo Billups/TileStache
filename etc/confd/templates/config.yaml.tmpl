@@ -1,0 +1,11 @@
+# Rclone ConfD template
+# 
+[remote]
+type = s3
+provider = AWS
+env_auth = false
+access_key_id = {{getv "/rclone/key/id"}}
+secret_access_key = {{getv "/rclone/key/secret"}}
+region = us-west-2 
+location_constraint = us-west-2
+
