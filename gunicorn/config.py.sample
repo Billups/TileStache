@@ -3,6 +3,6 @@
 import multiprocessing
 
 bind = 'unix:/var/gunicorn/gunicorn.sock'
-workers = multiprocessing.cpu_count()
+workers = 1
 accesslog = '-'
 access_log_format = '%(t)s %(p)s STATUS: %(s)s TIME: %(L)ss "%(r)s"'
