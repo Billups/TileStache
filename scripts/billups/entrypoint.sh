@@ -9,6 +9,6 @@ TILEGEN_VER="$(rclone ls remote:billups-artifacts/tilegen/$TILEGEN_REV/products 
 rclone copy -vv --stats 5s remote:billups-artifacts/tilegen/$TILEGEN_REV/products/$TILEGEN_VER /usr/src/data/
 tar xfv /usr/src/data/$TILEGEN_VER -C /usr/src/data/
 rm /usr/src/data/$TILEGEN_VER
-/usr/sbin/nginx -c nginx.conf.sample & \
+/usr/sbin/nginx -c /etc/nginx/nginx.conf & \
 exec gunicorn -c gunicorn/config.py.sample "TileStache:WSGITileServer('tilestache.cfg.sample')"
 # exec gunicorn -c gunicorn/config.py.sample -b 0.0.0.0:9090 "TileStache:WSGITileServer('tilestache.cfg.sample')"

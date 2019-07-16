@@ -26,7 +26,7 @@ RUN pip install -r requirements.txt
 
 
 # Configure Gunicorn
-RUN mkdir /var/gunicorn && chown -R www-data:www-data /var/gunicorn
+RUN mkdir /var/gunicorn
 
 # Install ConfD to handle config file generation because IAM roles for S3 are kooky on ECS.
 ARG CONFD_VERSION=0.16.0
@@ -35,7 +35,7 @@ RUN wget https://github.com/kelseyhightower/confd/releases/download/v${CONFD_VER
 COPY etc/ /etc/
 
 COPY scripts/billups/entrypoint.sh .
-COPY nginx/nginx.conf.sample .
+COPY nginx/nginx.conf.sample /etc/nginx/nginx.conf
 RUN chmod +x entrypoint.sh
 RUN mkdir -p /root/.config/rclone/
 
